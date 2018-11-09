@@ -1,0 +1,20 @@
+﻿locations                                   		#mention of progressive hookshot
+GS Zora's Fountain Hidden Cave
+Fire Temple MQ Big Lava Room Bombable Chest            	10 			
+Spirit Temple Compass Chest                       	11 		(Chest this one doesn’t matter)
+Spirit Temple Boss Key Chest                            15		
+Twinrova                                                16 		(boss)
+Twinrova Heart                                          17 		(boss)		
+Shadow Temple Hookshot Target        	(vanilla)       21 		(hookshot target)
+Shadow Temple Freestanding Key 		(vanilla)       22		
+GS Shadow Temple Like Like Room 	(GS)            23		(GS hook not chest)
+GS Shadow Temple Crusher Room 		(GS)            24		(GS hook not chest)
+GS Shadow Temple Single Giant Pot	(GS)            25		(GS hook not chest)
+Shadow Temple Hookshot Target		(MQ)            26 		(hookshot target)
+GS Shadow Temple MQ Crusher Room	(MQ)            27		
+Ganons Castle Spirit Trial Clear                        29		
+Ganons Castle Spirit Trial First Chest                  30		
+Ganons Castle Spirit Trial Second Chest                 31		
+Ganons Castle Light Trial Clear                         32		
+Ganons Castle MQ Forest Trial Freestanding Key          33		
+Ganons Castle Light Trial Clear                         37		
