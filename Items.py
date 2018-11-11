@@ -4,6 +4,12 @@ from BaseClasses import Item
 
 
 def ItemFactory(items, world=None):
+    """
+    Checks and returns items that are within item_table
+    :param items: list or string of items to test
+    :param world: The world to manipulate
+    :return: List of appropriate items
+    """
     ret = []
     singleton = False
     if isinstance(items, str):
@@ -31,7 +37,7 @@ class ShopData(object):
         self.price = price
 
 
-# Format: Name: (Advancement, Priority, Type, ItemCode, Index)
+# Format: Name: (Advancement, Priority, Type, ItemCode, Index, object, model)
 item_table = {
     'Bow': (True, False, None, None, 0x83, 0x00E9, 0x35),
     'Progressive Hookshot': (True, False, None, None, 0x80, 0x00DD, 0x2D),

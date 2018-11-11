@@ -5,7 +5,12 @@ from Items import ItemFactory
 
 
 def create_dungeons(world):
+    """
+    Generates dungeons whether it is master's quest or not. Utilizes ItemFactory to generate items
+    :param world: The world to manipulate dungeons
+    """
     def make_dungeon(name, dungeon_regions_names, boss_key, small_keys, dungeon_items):
+        #Used to set the world's dungeons one at a time
         dungeon_regions = [world.get_region(region) for region in dungeon_regions_names]
 
         dungeon = Dungeon(world, name, dungeon_regions, boss_key, small_keys, dungeon_items)
@@ -14,18 +19,21 @@ def create_dungeons(world):
         return dungeon
 
     if world.dungeon_mq['DT']:
+        #makes Deku Tree master quest if the world's dungeon_mq is true
         DT = make_dungeon(
             'Deku Tree', 
             ['Deku Tree Lobby', 'Deku Tree Compass Room', 'Deku Tree Boss Room'], 
             None, [],
             ItemFactory(['Map (Deku Tree)', 'Compass (Deku Tree)']))
     else:
+        #otherwise it will create a vanilla dungeon
         DT = make_dungeon(
             'Deku Tree', 
             ['Deku Tree Lobby', 'Deku Tree Slingshot Room', 'Deku Tree Boss Room'], 
             None, [],
             ItemFactory(['Map (Deku Tree)', 'Compass (Deku Tree)']))
 
+    # Dodongo's Cavern
     if world.dungeon_mq['DC']:
         DC = make_dungeon(
             'Dodongos Cavern', 
@@ -40,6 +48,7 @@ def create_dungeons(world):
             None, [], 
             ItemFactory(['Map (Dodongos Cavern)', 'Compass (Dodongos Cavern)']))
 
+    # Jabu-Jabu's Belly
     if world.dungeon_mq['JB']:
         JB = make_dungeon(
             'Jabu Jabus Belly', 
@@ -53,6 +62,7 @@ def create_dungeons(world):
             None, [], 
             ItemFactory(['Map (Jabu Jabus Belly)', 'Compass (Jabu Jabus Belly)']))
 
+    # Forest Temple
     if world.dungeon_mq['FoT']:
         FoT = make_dungeon(
             'Forest Temple', 
@@ -72,6 +82,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Forest Temple)'] * 5), 
             ItemFactory(['Map (Forest Temple)', 'Compass (Forest Temple)']))
 
+    # Bottom of the Well
     if world.dungeon_mq['BW']:
         BW = make_dungeon(
             'Bottom of the Well', 
@@ -87,6 +98,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Bottom of the Well)'] * 3), 
             ItemFactory(['Map (Bottom of the Well)', 'Compass (Bottom of the Well)']))
 
+    # Fire Temple
     if world.dungeon_mq['FiT']:
         FiT = make_dungeon(
             'Fire Temple', 
@@ -110,6 +122,7 @@ def create_dungeons(world):
         None, [], 
         ItemFactory(['Map (Ice Cavern)', 'Compass (Ice Cavern)']))
 
+    #Water Temple
     if world.dungeon_mq['WT']:
         WT = make_dungeon(
             'Water Temple', 
@@ -126,6 +139,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Water Temple)'] * 6), 
             ItemFactory(['Map (Water Temple)', 'Compass (Water Temple)']))
 
+    #Shadow Temple
     if world.dungeon_mq['ShT']:
         ShT = make_dungeon(
             'Shadow Temple', 
@@ -143,6 +157,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Shadow Temple)'] * 5), 
             ItemFactory(['Map (Shadow Temple)', 'Compass (Shadow Temple)']))
 
+    #Gerudo Training Ground
     if world.dungeon_mq['GTG']:
         GTG = make_dungeon(
             'Gerudo Training Grounds', 
@@ -163,6 +178,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Gerudo Training Grounds)'] * 9), 
             [])
 
+    #Spirit Temple
     if world.dungeon_mq['SpT']:
         SpT = make_dungeon(
             'Spirit Temple', 
@@ -180,6 +196,7 @@ def create_dungeons(world):
             ItemFactory(['Small Key (Spirit Temple)'] * 5), 
             ItemFactory(['Map (Spirit Temple)', 'Compass (Spirit Temple)']))
 
+    #Ganon's Castle
     if world.dungeon_mq['GC']:
         GC = make_dungeon(
             'Ganons Castle', 
