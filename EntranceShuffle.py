@@ -1,7 +1,10 @@
 import random
 
 def link_entrances(world):
-
+    """
+    Creates connections between regions, based on exits
+    :param world: The world to change connections
+    """
     # setup mandatory connections
     for exitname, regionname in mandatory_connections:
         connect_simple(world, exitname, regionname)
@@ -70,9 +73,21 @@ def link_entrances(world):
 
 
 def connect_simple(world, exitname, regionname):
+    """
+    Simple function for defining connections between regions within a world
+    :param world: the world whose regions will be manipulated
+    :param exitname: the exit from last area
+    :param regionname: the region connected with the exit
+    """
     world.get_entrance(exitname).connect(world.get_region(regionname))
 
 def connect_entrance(world, entrancename, exitname):
+    """
+    Method for connecting an entrance to a region
+    :param world: the world the regions/entrances/exits exist in
+    :param entrancename: name of the entrance being connected
+    :param exitname: name of the exit  being connected
+    """
     entrance = world.get_entrance(entrancename)
     # check if we got an entrance or a region to connect to
     try:
@@ -93,6 +108,12 @@ def connect_entrance(world, entrancename, exitname):
 
 
 def connect_exit(world, exitname, entrancename):
+    """
+    Method for connecting an exit to a region
+    :param world: the world the regions/entrances/exits exist in
+    :param entrancename: name of the entrance being connected
+    :param exitname: name of the exit  being connected
+    """
     entrance = world.get_entrance(entrancename)
     exit = world.get_entrance(exitname)
 
@@ -104,6 +125,13 @@ def connect_exit(world, exitname, entrancename):
 
 
 def connect_random(world, exitlist, targetlist, two_way=False):
+    """
+    Randomly connects some exits with target destinations
+    :param world: the world the regions/entrances/exits exist in
+    :param exitlist: a list of predefined exit points
+    :param targetlist: a list of predefined targets
+    :param two_way: boolean value for determining if the connection goes both ways
+    """
     targetlist = list(targetlist)
     random.shuffle(targetlist)
 
