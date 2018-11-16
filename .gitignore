@@ -11,3 +11,5 @@ output/*
 *.spec
 dist/
 build/
+
+/.idea
