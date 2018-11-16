@@ -155,7 +155,7 @@ def guiMain(settings=None):
     # shared
     settingsFrame = Frame(mainWindow)
     settings_string_var = StringVar()
-    settingsEntry = Entry(settingsFrame, textvariable=settings_string_var, width=25)
+    settingsEntry = ttk.Combobox(settingsFrame, textvariable=settings_string_var, width=25)
 
     def show_settings(event=None):
         settings = guivars_to_settings(guivars)
@@ -222,9 +222,11 @@ def guiMain(settings=None):
     settingsEntry.pack(side=LEFT, anchor=W)
     importSettingsButton.pack(side=LEFT, anchor=W, padx=5)
 
-
-
     fileDialogFrame = Frame(frames['rom_tab'])
+
+    #####
+    settingsNickFrame = Frame(frames['rom_tab'])
+    #####
 
     romDialogFrame = Frame(fileDialogFrame)
     baseRomLabel = Label(romDialogFrame, text='Base ROM')
@@ -241,9 +243,19 @@ def guiMain(settings=None):
     romEntry.pack(side=LEFT, padx=3)
     romSelectButton.pack(side=LEFT)
 
+    romNickname = Label(settingsNickFrame, text='Conf. Nickname')
+    romNickEntry = Entry(settingsNickFrame, width=40)
+    romNickEntry.delete(0, len(romNickEntry.get()))
+    romNickEntry.insert(0, 'Test')
+
+    romNickname.pack(side=LEFT)
+    romNickEntry.pack(side=LEFT)
+
     romDialogFrame.pack()
 
     fileDialogFrame.pack(side=TOP, anchor=W, padx=5, pady=(5,1))
+
+    settingsNickFrame.pack(side=TOP, anchor=W, padx=5, pady=(5,1))
 
     def open_output():
         open_file(output_path(''))
