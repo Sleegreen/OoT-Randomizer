@@ -10,6 +10,7 @@ from tkinter import Scale, Checkbutton, OptionMenu, Toplevel, LabelFrame, Radiob
 from tkinter.colorchooser import *
 from urllib.parse import urlparse
 from urllib.request import urlopen
+import time
 
 from GuiUtils import ToolTips, set_icon, BackgroundTask, BackgroundTaskProgress, Dialog
 from Main import main
@@ -52,6 +53,21 @@ def settings_to_guivars(settings, guivars):
 
 def guivars_to_settings(guivars):
     result = {}
+
+
+
+    #This is a dictionary that has the nickname as the reference and returns a tuple where element 0 is the settings
+    # string and the second element is a float type numerical value for time
+
+    savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
+        "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
+        "slow":('SLOWAAAAABC123',time.mktime(time.gmtime()-80)),
+        "red":('REDAAAAABC123',time.mktime(time.gmtime())-120),
+        "blue":('BLUEAAAAABC123',time.mktime(time.gmtime())-160)
+    }
+
+
+
     for info in setting_infos:
         name = info.name
         if name not in guivars:
