@@ -59,7 +59,9 @@ def guivars_to_settings(guivars):
     #This is a dictionary that has the nickname as the reference and returns a tuple where element 0 is the settings
     # string and the second element is a float type numerical value for time
 
-    savedSettings={"default":{ "string" :'DEFAULTAABC123',time:time.mktime(time.gmtime())},
+    savedSettings={
+        'count'=5
+        "default":{ "string" :'DEFAULTAABC123',time:time.mktime(time.gmtime())},
 
         "fast": {'string' :'FASTAAAAABC123',time:time.mktime(time.gmtime())-40},
 
