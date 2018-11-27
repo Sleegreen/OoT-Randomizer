@@ -4,32 +4,32 @@
 "settings":{
 
   "count": 5,
-  "setting1":
+  "default":
 
   {
     "name": "default",
     "string": "DEFAULTAABC123",
     "time": 4000000
   },
-  "setting2":
+  "fast":
   {
     "name": "fast",
     "string": "FASTAAAAABC123",
     "time": 3900000
   },
-  "setting3":
+  "slow":
   {
     "name": "slow",
     "string": "SLOWAAAAABC123",
     "time": 3800000
   },
-  "setting4":
+  "red":
   {
     "name": "red",
     "string": "REDAAAAABC123",
     "time": 3700000
   },
-  "setting5":
+  "blue":
   {
     "name": "blue",
     "string": "BLUEAAAAABC123",
