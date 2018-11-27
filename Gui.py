@@ -61,7 +61,7 @@ def guivars_to_settings(guivars):
 
     savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
         "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
-        "slow":('SLOWAAAAABC123',time.mktime(time.gmtime()-80)),
+        "slow":('SLOWAAAAABC123',time.mktime(time.gmtime())-80),
         "red":('REDAAAAABC123',time.mktime(time.gmtime())-120),
         "blue":('BLUEAAAAABC123',time.mktime(time.gmtime())-160)
     }
