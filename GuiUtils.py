@@ -6,6 +6,11 @@ import traceback
 from Utils import data_path, is_bundled
 
 def set_icon(window):
+    """
+
+    :param window:
+    :return:
+    """
     er16 = tk.PhotoImage(file=data_path('ER16.gif'))
     er32 = tk.PhotoImage(file=data_path('ER32.gif'))
     er48 = tk.PhotoImage(file=data_path('ER48.gif'))

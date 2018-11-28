@@ -5,6 +5,10 @@ def shop_address(shop_id, shelf_id):
     return 0xC71ED0 + (0x40 * shop_id) + (0x08 * shelf_id)
 
 def create_regions(world):
+    """
+    initializes regions with the containers that they have
+    :param world: the world state
+    """
 
     world.regions = [
         create_ow_region(

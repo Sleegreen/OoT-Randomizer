@@ -8,6 +8,13 @@ class FillError(RuntimeError):
 
 # Places all items into the world
 def distribute_items_restrictive(window, worlds, fill_locations=None):
+    """
+
+    :param window:
+    :param worlds:
+    :param fill_locations:
+    :return:
+    """
     song_locations = [world.get_location(location) for world in worlds for location in
         ['Song from Composer Grave', 'Impa at Castle', 'Song from Malon', 'Song from Saria', 
         'Song from Ocarina of Time', 'Song at Windmill', 'Sheik Forest Song', 'Sheik at Temple', 
@@ -118,6 +125,15 @@ def distribute_items_restrictive(window, worlds, fill_locations=None):
 # Places restricted dungeon items into the worlds. To ensure there is room for them.
 # they are placed first so it will assume all other items are reachable
 def fill_dungeons_restrictive(window, worlds, shuffled_locations, dungeon_items, itempool):
+    """
+
+    :param window:
+    :param worlds:
+    :param shuffled_locations:
+    :param dungeon_items:
+    :param itempool:
+    :return:
+    """
     # List of states with all non-key items
     all_state_base_list = CollectionState.get_states_with_items([world.state for world in worlds], itempool)
 
@@ -140,6 +156,14 @@ def fill_dungeons_restrictive(window, worlds, shuffled_locations, dungeon_items,
 # one progression item per dungeon. This should be ran before all the progression
 # items are places to ensure there is space to place them.
 def fill_dungeon_unique_item(window, worlds, fill_locations, itempool):
+    """
+
+    :param window:
+    :param worlds:
+    :param fill_locations:
+    :param itempool:
+    :return:
+    """
     # We should make sure that we don't count event items, shop items,
     # token items, or dungeon items as a major item. itempool at this
     # point should only be able to have tokens of those restrictions
@@ -192,6 +216,16 @@ def fill_dungeon_unique_item(window, worlds, fill_locations, itempool):
 
 # Places the shop items into the world at the Shop locations
 def fill_shops(window, worlds, locations, shoppool, itempool, attempts=15):
+    """
+
+    :param window:
+    :param worlds:
+    :param locations:
+    :param shoppool:
+    :param itempool:
+    :param attempts:
+    :return:
+    """
     # List of states with all items
     all_state_base_list = CollectionState.get_states_with_items([world.state for world in worlds], itempool)
 
@@ -217,6 +251,16 @@ def fill_shops(window, worlds, locations, shoppool, itempool, attempts=15):
 
 # Places the songs into the world at the Song locations
 def fill_songs(window, worlds, locations, songpool, itempool, attempts=15):
+    """
+
+    :param window:
+    :param worlds:
+    :param locations:
+    :param songpool:
+    :param itempool:
+    :param attempts:
+    :return:
+    """
     # get the song locations for each world
 
     # look for preplaced items
@@ -264,6 +308,16 @@ def fill_songs(window, worlds, locations, songpool, itempool, attempts=15):
 # filled locations will be removed. If this returns and error, then the state of
 # those two lists cannot be guaranteed.
 def fill_restrictive(window, worlds, base_state_list, locations, itempool, count=-1):
+    """
+
+    :param window:
+    :param worlds:
+    :param base_state_list:
+    :param locations:
+    :param itempool:
+    :param count:
+    :return:
+    """
     unplaced_items = []
 
     # loop until there are no items or locations
@@ -328,6 +382,14 @@ def fill_restrictive(window, worlds, base_state_list, locations, itempool, count
 # It does not check for reachability, only that the item is
 # allowed in the location
 def fill_restrictive_fast(window, worlds, locations, itempool):
+    """
+
+    :param window:
+    :param worlds:
+    :param locations:
+    :param itempool:
+    :return:
+    """
     while itempool and locations:
         item_to_place = itempool.pop()
 

@@ -20,6 +20,12 @@ from version import __version__ as ESVersion
 import webbrowser
 
 def settings_to_guivars(settings, guivars):
+    """
+
+    :param settings:
+    :param guivars:
+    :return:
+    """
     for info in setting_infos:
         name = info.name
         if name not in guivars:
@@ -51,6 +57,11 @@ def settings_to_guivars(settings, guivars):
                 guivar.set( str(value) )
 
 def guivars_to_settings(guivars):
+    """
+
+    :param guivars:
+    :return:
+    """
     result = {}
     for info in setting_infos:
         name = info.name
@@ -81,6 +92,11 @@ def guivars_to_settings(guivars):
     return Settings(result)
 
 def guiMain(settings=None):
+    """
+
+    :param settings:
+    :return:
+    """
     frames = {}
 
     mainWindow = Tk()
@@ -142,6 +158,11 @@ def guiMain(settings=None):
     settingsEntry = Entry(settingsFrame, textvariable=settings_string_var, width=25)
 
     def show_settings(event=None):
+        """
+
+        :param event:
+        :return:
+        """
         settings = guivars_to_settings(guivars)
         settings_string_var.set( settings.get_settings_string() )
         
@@ -176,6 +197,11 @@ def guiMain(settings=None):
                 guivars[info.name].set('Custom (' + color[1] + ')')
 
     def update_logic_tricks(event=None):
+        """
+
+        :param event:
+        :return:
+        """
         for info in setting_infos:
             if info.gui_params \
             and info.gui_params['widget'] == 'Checkbutton' \
@@ -191,6 +217,11 @@ def guiMain(settings=None):
 
 
     def import_settings(event=None):
+        """
+        Import settings from settings string
+        :param event:
+        :return:
+        """
         try:
             settings = guivars_to_settings(guivars)
             text = settings_string_var.get().upper()

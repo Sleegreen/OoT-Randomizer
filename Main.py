@@ -33,6 +33,12 @@ class dummy_window():
         pass
 
 def main(settings, window=dummy_window()):
+    """
+
+    :param settings:
+    :param window:
+    :return:
+    """
 
     start = time.clock()
 
@@ -182,6 +188,13 @@ def main(settings, window=dummy_window()):
 
 
 def run_process(window, logger, args):
+    """
+
+    :param window:
+    :param logger:
+    :param args:
+    :return:
+    """
     process = subprocess.Popen(args, **subprocess_args(True))
     filecount = None
     while True:
@@ -199,6 +212,11 @@ def run_process(window, logger, args):
 
 
 def create_playthrough(worlds):
+    """
+
+    :param worlds:
+    :return:
+    """
     if worlds[0].check_beatable_only and not CollectionState.can_beat_game([world.state for world in worlds]):
         raise RuntimeError('Uncopied is broken too.')
     # create a copy as we will modify it
