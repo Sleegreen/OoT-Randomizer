@@ -60,7 +60,7 @@ def guivars_to_settings(guivars):
     # string and the second element is a float type numerical value for time
 
     savedSettings={
-        'count'=5
+        'count':5,
         "default":{ "string" :'DEFAULTAABC123',time:time.mktime(time.gmtime())},
 
         "fast": {'string' :'FASTAAAAABC123',time:time.mktime(time.gmtime())-40},
@@ -69,6 +69,8 @@ def guivars_to_settings(guivars):
         "red":{"string" :'REDAAAAABC123',time:time.mktime(time.gmtime())-120},
         "blue":{"string" :'BLUEAAAAABC123',time:time.mktime(time.gmtime())-160}
     }
+
+
 
 
 
