@@ -61,7 +61,7 @@ def guivars_to_settings(guivars):
 
     savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
         "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
-        "slow":('SLOWAAAAABC123',time.mktime(time.gmtime()-80)),
+        "slow":('SLOWAAAAABC123',time.mktime(time.gmtime())-80),
         "red":('REDAAAAABC123',time.mktime(time.gmtime())-120),
         "blue":('BLUEAAAAABC123',time.mktime(time.gmtime())-160)
     }
@@ -440,6 +440,15 @@ def guiMain(settings=None):
     playerNumFrame.pack(side=LEFT, anchor=N, padx=10, pady=(1,5))
     multiworldFrame.pack(side=TOP, anchor=W, padx=5, pady=(1,1))
 
+    saveStringVar = IntVar()
+    stringSaveFrame = Frame(frames['rom_tab'])
+    saveRomCheck = Checkbutton(stringSaveFrame, variable=saveStringVar)
+    saveRomLabel = Label(stringSaveFrame, text='Save String Settings')
+    saveRomCheck.pack(side=LEFT)
+    saveRomLabel.pack(side=LEFT)
+
+    stringSaveFrame.pack(side=LEFT, anchor=N)
+
 
     # didn't refactor the rest, sorry
 
@@ -456,6 +465,9 @@ def guiMain(settings=None):
             main(settings, window)
 
     def generateRom():
+        if saveStringVar:
+            #TODO save string to json file and remove pass
+            pass
         settings = guivars_to_settings(guivars)
         if settings.count is not None:
             BackgroundTaskProgress(mainWindow, "Generating Seed %s..." % settings.seed, multiple_run, settings)

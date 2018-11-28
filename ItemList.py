@@ -394,6 +394,11 @@ junk_pool = (
     4 *  ['Rupees (20)'] + 
     1 *  ['Rupees (50)'])
 def get_junk_item(count=1):
+    """
+    Returns a list of junk
+    :param count: Amount of junk to return
+    :return: A random amount of rupees or junk as a list
+    """
     ret_junk = []
     for _ in range(count):
         ret_junk.append(random.choice(junk_pool))
@@ -844,12 +849,18 @@ def choose_trials(world):
     if world.trials_random:
         world.trials = random.randint(0, 6)
     num_trials = int(world.trials)
-    choosen_trials = random.sample(['Forest', 'Fire', 'Water', 'Spirit', 'Shadow', 'Light'], num_trials)
+    chosen_trials = random.sample(['Forest', 'Fire', 'Water', 'Spirit', 'Shadow', 'Light'], num_trials)
     for trial in world.skipped_trials:
-        if trial not in choosen_trials:
+        if trial not in chosen_trials:
             world.skipped_trials[trial] = True
 
 def fill_bosses(world, bossCount=9):
+    """
+    Places quest items randomly at a random boss location
+    :param world: The world to manipulate
+    :param bossCount: number of bosses in the game (shouldn't really change)
+    :return: None
+    """
     boss_rewards = ItemFactory(rewardlist, world)
     boss_locations = [
         world.get_location('Queen Gohma'), 
