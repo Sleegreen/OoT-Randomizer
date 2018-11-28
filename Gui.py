@@ -59,7 +59,7 @@ def guivars_to_settings(guivars):
     #This is a dictionary that has the nickname as the reference and returns a tuple where element 0 is the settings
     # string and the second element is a float type numerical value for time
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
     savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
         "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
         "slow":('SLOWAAAAABC123',time.mktime(time.gmtime())-80),
@@ -69,13 +69,13 @@ def guivars_to_settings(guivars):
 
 
 
-=======
+#=======
     file="\data\setting-strings.json"
     path=os.getcwd()+file
     with open(path,'r+') as jsonSets:
         json_data = json.load(jsonSets)
         savedSettings=json_data
->>>>>>> ee85c619bf1443b3541d4d41363eadaf53d43975
+#>>>>>>> ee85c619bf1443b3541d4d41363eadaf53d43975
     for info in setting_infos:
         name = info.name
         if name not in guivars:
@@ -252,12 +252,19 @@ def guiMain(settings=None):
     romSelectButton.pack(side=LEFT)
 
     romNickname = Label(settingsNickFrame, text='Conf. Nickname')
-    romNickEntry = Entry(settingsNickFrame, width=40)
+    romNickEntry = Entry(settingsNickFrame, width=35)
     romNickEntry.delete(0, len(romNickEntry.get()))
     romNickEntry.insert(0, 'Test')
 
     romNickname.pack(side=LEFT)
     romNickEntry.pack(side=LEFT)
+
+    saveStringVar = IntVar()
+    stringSaveFrame = Frame(settingsNickFrame)
+    saveRomCheck = Checkbutton(stringSaveFrame, variable=saveStringVar)
+    saveRomLabel = Label(stringSaveFrame, text='Save Settings String')
+    saveRomCheck.pack(side=RIGHT)
+    saveRomLabel.pack(side=RIGHT)
 
     romDialogFrame.pack()
 
@@ -447,13 +454,6 @@ def guiMain(settings=None):
     countSpinbox.pack(side=LEFT, padx=2)
     playerNumFrame.pack(side=LEFT, anchor=N, padx=10, pady=(1,5))
     multiworldFrame.pack(side=TOP, anchor=W, padx=5, pady=(1,1))
-
-    saveStringVar = IntVar()
-    stringSaveFrame = Frame(frames['rom_tab'])
-    saveRomCheck = Checkbutton(stringSaveFrame, variable=saveStringVar)
-    saveRomLabel = Label(stringSaveFrame, text='Save String Settings')
-    saveRomCheck.pack(side=LEFT)
-    saveRomLabel.pack(side=LEFT)
 
     stringSaveFrame.pack(side=LEFT, anchor=N)
 
