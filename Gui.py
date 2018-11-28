@@ -59,6 +59,7 @@ def guivars_to_settings(guivars):
     #This is a dictionary that has the nickname as the reference and returns a tuple where element 0 is the settings
     # string and the second element is a float type numerical value for time
 
+<<<<<<< HEAD
     savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
         "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
         "slow":('SLOWAAAAABC123',time.mktime(time.gmtime())-80),
@@ -68,6 +69,13 @@ def guivars_to_settings(guivars):
 
 
 
+=======
+    file="\data\setting-strings.json"
+    path=os.getcwd()+file
+    with open(path,'r+') as jsonSets:
+        json_data = json.load(jsonSets)
+        savedSettings=json_data
+>>>>>>> ee85c619bf1443b3541d4d41363eadaf53d43975
     for info in setting_infos:
         name = info.name
         if name not in guivars:

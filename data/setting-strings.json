@@ -1,0 +1,39 @@
+
+{
+
+"settings":{
+
+  "count": 5,
+  "default":
+
+  {
+    "name": "default",
+    "string": "DEFAULTAABC123",
+    "time": 4000000
+  },
+  "fast":
+  {
+    "name": "fast",
+    "string": "FASTAAAAABC123",
+    "time": 3900000
+  },
+  "slow":
+  {
+    "name": "slow",
+    "string": "SLOWAAAAABC123",
+    "time": 3800000
+  },
+  "red":
+  {
+    "name": "red",
+    "string": "REDAAAAABC123",
+    "time": 3700000
+  },
+  "blue":
+  {
+    "name": "blue",
+    "string": "BLUEAAAAABC123",
+    "time": 3600000
+  }
+}
+}
