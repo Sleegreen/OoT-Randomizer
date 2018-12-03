@@ -165,6 +165,20 @@ def guiMain(settings=None):
     settings_string_var = StringVar()
     settingsEntry = ttk.Combobox(settingsFrame, textvariable=settings_string_var, width=25)
 
+    file = "\data\setting-strings.json"
+    path = os.getcwd() + file
+    with open(path) as jsonSets:
+        data = json.load(jsonSets)
+        # settingsEntry.config(values = [1, 2, 3, 4])
+
+        x = 0
+        string_names = []
+        for key, value in data.get('settings').items():
+            if key != 'count':
+                string_names.append(value.get('name'))
+        settingsEntry.config(values = string_names)
+
+
     def show_settings(event=None):
         settings = guivars_to_settings(guivars)
         settings_string_var.set( settings.get_settings_string() )
