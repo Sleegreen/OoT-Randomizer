@@ -59,7 +59,7 @@ def guivars_to_settings(guivars):
     #This is a dictionary that has the nickname as the reference and returns a tuple where element 0 is the settings
     # string and the second element is a float type numerical value for time
 
-#<<<<<<< HEAD
+    #<<<<<<< HEAD
     savedSettings={"default":('DEFAULTAABC123',time.mktime(time.gmtime())),
         "fast":('FASTAAAAABC123',time.mktime(time.gmtime())-40),
         "slow":('SLOWAAAAABC123',time.mktime(time.gmtime())-80),
@@ -488,8 +488,24 @@ def guiMain(settings=None):
 
     def generateRom():
         if saveStringVar:
-            #TODO save string to json file and remove pass
-            pass
+            oldest = float('inf')
+            oldestKey=None
+            for key in data['settings']:
+                if key !='count' and key !='default':
+                    if data['settings'][key].get('time')<oldest:
+                        oldest=data['settings'][key].get('time')
+                        oldestKey= key
+            del data['settings'][oldestKey]
+            enteredNickName=romNickEntry.get()
+            data['settings'][enteredNickName]={
+                "name": enteredNickName,
+                "string": settings_string_var.get(),
+                "time": time.mktime(time.gmtime())
+            }
+
+            print(data)
+            with open (path,'w') as outfile:
+                json.dump(data,outfile)
         settings = guivars_to_settings(guivars)
         if settings.count is not None:
             BackgroundTaskProgress(mainWindow, "Generating Seed %s..." % settings.seed, multiple_run, settings)
