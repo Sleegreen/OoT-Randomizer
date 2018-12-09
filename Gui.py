@@ -217,14 +217,27 @@ def guiMain(settings=None):
 
 
     def import_settings(event=None):
+        """
+        Populates the nickname field and the settings string based on the combobox selection
+
+        """
         try:
+            settingName = settingsEntry.get()
+            settingString = data['settings'][settingName].get('string')
             settings = guivars_to_settings(guivars)
-            text = settings_string_var.get().upper()
-            settings.seed = guivars['seed'].get()
-            settings.update_with_settings_string(text)
+
+            romNickEntry.delete(0, len(romNickEntry.get()))
+            romNickEntry.insert(0, settingName)
+            settingsEntry.delete(0, len(romNickEntry.get()))
+            settingsEntry.insert(0, settingString)
+
+            #propogate the settings
+            settings.update_with_settings_string(settingString)
             settings_to_guivars(settings, guivars)
         except Exception as e:
             messagebox.showerror(title="Error", message="Invalid settings string")
+
+
 
     label = Label(settingsFrame, text="Settings String")
     importSettingsButton = Button(settingsFrame, text='Import Settings String', command=import_settings)
